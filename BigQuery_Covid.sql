@@ -3,7 +3,7 @@
 SELECT country_name, sum(new_confirmed) as Confirmed, sum(new_deceased) as Deceased, sum(new_persons_fully_vaccinated) as Vaccinated, (sum(new_persons_fully_vaccinated)/max(population)) as Percent_Vaxed, max(population) as population, sum(new_confirmed_male) as male_confirmed, sum(new_deceased_male) as male_deceased, sum(new_confirmed_female) as female_confirmed, sum(new_deceased_female) as femaled_deceased, (sum(new_confirmed_male)/sum(new_confirmed)) as percent_male_confirmed, (sum(new_confirmed_female)/sum(new_confirmed)) as percent_female_confirmed
 FROM `bigquery-public-data.covid19_open_data.covid19_open_data` 
 group by country_name
-order by Percent_Vaxed desc
+order by population desc
 LIMIT 1000
 
 -- Creating a table for daily data updates
